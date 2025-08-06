@@ -1,6 +1,8 @@
 TODO FOR TILE GAME
 
-2. make interact function
+1. Make interactable thing that starts dialogue
 - interact area2d, if overlaps player area2d
 
 1. Make background art
+
+1. Disable jump during dialogue

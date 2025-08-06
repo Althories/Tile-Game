@@ -9,6 +9,10 @@ const JUMP_SPEED = -500			#jump speed impulse
 
 var diving = false
 
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact"):
+		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
+		
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():	# Add the gravity.
 		velocity += get_gravity() * delta
