@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs88n6dx47fnk"]
+
+[ext_resource type="Script" uid="uid://ytcq2tiu6g0p" path="res://Scripts/player.gd" id="1_bxtam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pldgw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_80eni"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jard6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d5i7s"]
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+position = Vector2(572, 620)
+scale = Vector2(55.8, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+shape = SubResource("RectangleShape2D_pldgw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="World/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_80eni")
+
+[node name="Character" type="CharacterBody2D" parent="World"]
+unique_name_in_owner = true
+position = Vector2(600, 500)
+script = ExtResource("1_bxtam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Character"]
+shape = SubResource("CapsuleShape2D_jard6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="World/Character"]
+scale = Vector2(20, 20)
+mesh = SubResource("CapsuleMesh_d5i7s")
+
+[node name="Camera2D" type="Camera2D" parent="World/Character"]
+position = Vector2(0, -55)
+zoom = Vector2(1.5, 1.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0

@@ -1,3 +1,6 @@
 TODO FOR TILE GAME
 
- 
+2. make interact function
+- interact area2d, if overlaps player area2d
+
+1. Make background art
