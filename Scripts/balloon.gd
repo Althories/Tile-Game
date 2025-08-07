@@ -32,7 +32,9 @@ var dialogue_line: DialogueLine:
 			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
+			GlobalVariables.interacting = false		#Re-enables player movement.
 			queue_free()
+			
 	get:
 		return dialogue_line
 

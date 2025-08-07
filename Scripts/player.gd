@@ -8,12 +8,11 @@ const DIVE_SPEED_Y = 400
 const JUMP_SPEED = -500			#jump speed impulse
 
 var diving = false
-var interacting = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
-		interacting = true
+		GlobalVariables.interacting = true
 		
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():	# Add the gravity.
@@ -23,11 +22,11 @@ func _physics_process(delta: float) -> void:
 		diving = false		#resets dive when touching the floor
 
 	#Handle jump.
-	if Input.is_action_just_pressed("move_jump") and is_on_floor() and not interacting:
+	if Input.is_action_just_pressed("move_jump") and is_on_floor() and not GlobalVariables.interacting:
 		velocity.y = JUMP_SPEED
 	
 	#Handle dive.
-	if Input.is_action_just_pressed("move_dive") and not is_on_floor() and not interacting:
+	if Input.is_action_just_pressed("move_dive") and not is_on_floor() and not GlobalVariables.interacting:
 		diving = true				#sets state to diving. this bypasses velocity cap
 		velocity.y = DIVE_SPEED_Y	#Apply downwards impulse
 		if velocity.x > 0:		#if x velocity is positive, make x velocity SPEED CAP
@@ -37,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		
 	#Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction and not diving and not interacting:	#IF DIRECTION PRESSED and not currently in dive. Doing this means dive speed will not be capped by this code
+	if direction and not diving and not GlobalVariables.interacting:	#IF DIRECTION PRESSED and not currently in dive. Doing this means dive speed will not be capped by this code
 		if Input.is_action_pressed("move_left"):
 			if velocity.x - 50 < -SPEED_CAP:	#If projected velocity is greater than the cap, change to cap
 				velocity.x = -SPEED_CAP

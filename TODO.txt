@@ -4,5 +4,3 @@ TODO FOR TILE GAME
 - interact area2d, if overlaps player area2d
 
 1. Make background art
-
-1. Re-enable controls when exiting dialogue
