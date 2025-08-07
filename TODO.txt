@@ -3,4 +3,4 @@ TODO FOR TILE GAME
 1. Make interactable thing that starts dialogue
 - interact area2d, if overlaps player area2d
 
-1. Make background art
+1. Make background art (aseprite!!!)

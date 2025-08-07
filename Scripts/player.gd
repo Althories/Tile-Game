@@ -9,7 +9,7 @@ const JUMP_SPEED = -500			#jump speed impulse
 
 var diving = false
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
 		GlobalVariables.interacting = true
