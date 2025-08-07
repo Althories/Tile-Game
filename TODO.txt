@@ -5,4 +5,4 @@ TODO FOR TILE GAME
 
 1. Make background art
 
-1. Disable jump during dialogue
+1. Re-enable controls when exiting dialogue
