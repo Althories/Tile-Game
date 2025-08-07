@@ -2,5 +2,9 @@ TODO FOR TILE GAME
 
 1. Make interactable thing that starts dialogue
 - interact area2d, if overlaps player area2d
+1. make interact sprite appear when in interact range
+
+make new dialogue script dedicated to generic npc
+
 
 1. Make background art (aseprite!!!)

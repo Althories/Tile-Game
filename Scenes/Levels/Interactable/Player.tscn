@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://810tx54y6nbm"]
+
+[ext_resource type="Script" uid="uid://ytcq2tiu6g0p" path="res://Scripts/player.gd" id="1_rgbny"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jard6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d5i7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxtam"]
+size = Vector2(70, 40)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rgbny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jard6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(20, 20)
+mesh = SubResource("CapsuleMesh_d5i7s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -55)
+zoom = Vector2(1.5, 1.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="InteractZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone"]
+shape = SubResource("RectangleShape2D_bxtam")

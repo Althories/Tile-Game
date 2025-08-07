@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpmkyyqpktsqw"]
+
+[ext_resource type="PackedScene" uid="uid://87n37bfquws4" path="res://Scenes/Levels/Interactable/Templates/InteractZone.tscn" id="1_u5urk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ffx7t"]
+
+[node name="NPC" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_ffx7t")
+
+[node name="InteractZoneNonPlayer" parent="." instance=ExtResource("1_u5urk")]
