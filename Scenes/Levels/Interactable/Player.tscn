@@ -4,7 +4,8 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jard6"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_d5i7s"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgbny"]
+load_path = "res://.godot/imported/biker.png-bd882ae05667a6b5ac5b051f99f584e3.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxtam"]
 size = Vector2(70, 40)
@@ -15,9 +16,8 @@ script = ExtResource("1_rgbny")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jard6")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(20, 20)
-mesh = SubResource("CapsuleMesh_d5i7s")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_rgbny")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -55)
@@ -26,7 +26,8 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="InteractZone" type="Area2D" parent="."]
+[node name="InteractZonePlayer" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZonePlayer"]
 shape = SubResource("RectangleShape2D_bxtam")

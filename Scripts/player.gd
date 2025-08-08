@@ -10,12 +10,10 @@ const JUMP_SPEED = -500			#jump speed impulse
 var diving = false
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
-		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
-		GlobalVariables.interacting = true
+	pass
 		
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():	# Add the gravity.
+	if not is_on_floor() and not GlobalVariables.interacting:	# Add the gravity.
 		velocity += get_gravity() * delta
 		
 	if is_on_floor():
@@ -61,3 +59,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, 5)		
 
 	move_and_slide()
+
+func on_dialogue_initiated() -> void:	#this is scuffed. replace with better code later.
+	position.y -= 1		#lifts player off floor. Fixes some dialogue issues with simple code
